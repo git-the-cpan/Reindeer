@@ -2,7 +2,7 @@ NAME
     Reindeer - Moose with more antlers
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
         # ta-da!
@@ -20,18 +20,25 @@ DESCRIPTION
 INCLUDED EXTENSIONS
     Reindeer includes the traits and sugar provided by the following
     extensions. Everything their docs say they can do, you can do by default
-    in Reindeer.
+    with Reindeer.
 
+  MooseX::AbstractMethod
   MooseX::AlwaysCoerce
-  MooseX::AbstractMethod
-  MooseX::AbstractMethod
   MooseX::AttributeShortcuts
+  MooseX::MarkAsMethods
+    Note that this causes any overloads you've defined in your class/role to
+    be marked as methods, and namespace::autoclean invoked.
+
   MooseX::NewDefaults
   MooseX::StrictConstructor
 INCLUDED TYPE LIBRARIES
   MooseX::Types::Moose
   MooseX::Types::Common::String
   MooseX::Types::Common::Numeric
+OTHER
+    Non-Moose specific items made available to your class/role:
+
+  Try::Tiny
 CAVEAT
     This author is applying his own assessment of "useful/popular
     extensions". You may find yourself in agreement, or violent disagreement

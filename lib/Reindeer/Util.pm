@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.001'; # TRIAL
+  $Reindeer::Util::VERSION = '0.002';
 }
 
 # ABSTRACT: The great new Reindeer!
@@ -21,14 +21,13 @@ use warnings;
 #use common::sense;
 #use Moose::Exporter;
 
-use Moose                      ( );
-use MooseX::AlwaysCoerce       ( );
-use MooseX::AbstractMethod     ( );
-use MooseX::AttributeShortcuts ( );
-use MooseX::NewDefaults        ( );
-use MooseX::MarkAsMethods      ( ); #
-use MooseX::StrictConstructor  ( );
-use MooseX::Types::Moose       ( );
+use Moose                            ( );
+use MooseX::AlwaysCoerce             ( );
+use MooseX::AbstractMethod           ( );
+use MooseX::AttributeShortcuts 0.006 ( );
+use MooseX::NewDefaults              ( );
+use MooseX::MarkAsMethods 0.14       ( );
+use MooseX::StrictConstructor        ( );
 
 use MooseX::Types::Moose           ( );
 use MooseX::Types::Common::String  ( );
@@ -76,7 +75,7 @@ Reindeer::Util - The great new Reindeer!
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

@@ -13,6 +13,8 @@ lib/Reindeer/Util.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
 t/basic_load.t
+t/funcs.pm
+t/moosex-markasmethods/basic.t
 t/release-eol.t
 t/release-has-version.t
 t/release-no-smart-comments.t

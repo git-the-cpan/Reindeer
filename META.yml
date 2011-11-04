@@ -5,11 +5,12 @@ author:
 build_requires:
   File::Find: 0
   File::Temp: 0
+  Test::Moose: 0
   Test::More: 0.88
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112621'
+generated_by: 'Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112621'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -20,8 +21,8 @@ requires:
   Moose::Exporter: 0
   MooseX::AbstractMethod: 0
   MooseX::AlwaysCoerce: 0
-  MooseX::AttributeShortcuts: 0
-  MooseX::MarkAsMethods: 0
+  MooseX::AttributeShortcuts: 0.006
+  MooseX::MarkAsMethods: 0.14
   MooseX::NewDefaults: 0
   MooseX::StrictConstructor: 0
   MooseX::Types::Common::Numeric: 0
@@ -32,14 +33,15 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/RsrchBoy/reindeer/issues
+  homepage: http://metacpan.org/release/Reindeer/
   repository: git://github.com/RsrchBoy/reindeer.git
-version: 0.001
+version: 0.002
 x_Dist_Zilla:
   plugins:
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@Filter/NextRelease'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Filter/@Git/Check'
@@ -63,27 +65,27 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Filter/GatherDir'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@Filter/PruneCruft'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::License
       name: '@Filter/License'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Filter/ExecDir'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@Filter/ShareDir'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::MakeMaker
       name: '@Filter/MakeMaker'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Filter/InstallGuide'
@@ -91,7 +93,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@Filter/Manifest'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::SurgicalPkgVersion
       name: '@Filter/SurgicalPkgVersion'
@@ -103,7 +105,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@Filter/AutoPrereqs'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::Prepender
       name: '@Filter/Prepender'
@@ -111,11 +113,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@Filter/PodCoverageTests'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@Filter/PodSyntaxTests'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::NoTabsTests
       name: '@Filter/NoTabsTests'
@@ -139,7 +141,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@Filter/ExtraTests'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::MinimumPerl
       name: '@Filter/MinimumPerl'
@@ -155,27 +157,27 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Filter/MetaConfig'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@Filter/MetaJSON'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@Filter/MetaYAML'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Filter/TestRelease'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Filter/ConfirmRelease'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Filter/UploadToCPAN'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@Filter/CheckPrereqsIndexed'
@@ -207,29 +209,29 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.300002
+      version: 4.300003
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: 4.300002
+      version: 4.300003
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 1
-    version: 4.300002
+      is_trial: 0
+    version: 4.300003

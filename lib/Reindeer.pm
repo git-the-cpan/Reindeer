@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.001'; # TRIAL
+  $Reindeer::VERSION = '0.002';
 }
 
 # ABSTRACT: Moose with more antlers
@@ -21,15 +21,8 @@ use Reindeer::Util;
 use Moose::Exporter;
 
 my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
-    install => [ qw{ import unimport } ],
-
-    also => [ 'Moose', Reindeer::Util::also_list() ],
-
-    class_metaroles => {
-        class => [ qw{
-            MooseX::MarkAsMethods::MetaRole::MethodMarker
-        } ],
-    },
+    install => [ qw{ import unimport }                ],
+    also    => [ 'Moose', Reindeer::Util::also_list() ],
 );
 
 sub init_meta {
@@ -42,8 +35,9 @@ sub init_meta {
     ### more properly in import()?
     Reindeer::Util->import_type_libraries({ -into => $for_class });
     Try::Tiny->export_to_level(1);
+    MooseX::MarkAsMethods->import({ into => $for_class }, autoclean => 1);
 
-    goto $init_meta;
+    goto $init_meta if $init_meta;
 }
 
 !!42;
@@ -58,7 +52,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -78,15 +72,18 @@ way... Just with more pointy antlers.
 =head1 INCLUDED EXTENSIONS
 
 Reindeer includes the traits and sugar provided by the following extensions.
-Everything their docs say they can do, you can do by default in Reindeer.
+Everything their docs say they can do, you can do by default with Reindeer.
+
+=head2 L<MooseX::AbstractMethod>
 
 =head2 L<MooseX::AlwaysCoerce>
 
-=head2 L<MooseX::AbstractMethod>
-
-=head2 L<MooseX::AbstractMethod>
-
 =head2 L<MooseX::AttributeShortcuts>
+
+=head2 L<MooseX::MarkAsMethods>
+
+Note that this causes any overloads you've defined in your class/role to be
+marked as methods, and L<namespace::autoclean> invoked.
 
 =head2 L<MooseX::NewDefaults>
 
@@ -99,6 +96,12 @@ Everything their docs say they can do, you can do by default in Reindeer.
 =head2 L<MooseX::Types::Common::String>
 
 =head2 L<MooseX::Types::Common::Numeric>
+
+=head1 OTHER
+
+Non-Moose specific items made available to your class/role:
+
+=head2 L<Try::Tiny>
 
 =head1 CAVEAT
 

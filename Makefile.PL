@@ -14,6 +14,7 @@ my %WriteMakefileArgs = (
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
     "File::Temp" => 0,
+    "Test::Moose" => 0,
     "Test::More" => "0.88"
   },
   "CONFIGURE_REQUIRES" => {
@@ -28,8 +29,8 @@ my %WriteMakefileArgs = (
     "Moose::Exporter" => 0,
     "MooseX::AbstractMethod" => 0,
     "MooseX::AlwaysCoerce" => 0,
-    "MooseX::AttributeShortcuts" => 0,
-    "MooseX::MarkAsMethods" => 0,
+    "MooseX::AttributeShortcuts" => "0.006",
+    "MooseX::MarkAsMethods" => "0.14",
     "MooseX::NewDefaults" => 0,
     "MooseX::StrictConstructor" => 0,
     "MooseX::Types::Common::Numeric" => 0,
@@ -38,9 +39,9 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
-    "TESTS" => "t/*.t"
+    "TESTS" => "t/*.t t/moosex-markasmethods/*.t"
   }
 );
 
