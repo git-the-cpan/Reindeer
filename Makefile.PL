@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -14,6 +14,7 @@ my %WriteMakefileArgs = (
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
     "File::Temp" => 0,
+    "Moose::Util" => 0,
     "Test::Moose" => 0,
     "Test::More" => "0.88"
   },
@@ -25,6 +26,8 @@ my %WriteMakefileArgs = (
   "LICENSE" => "lgpl",
   "NAME" => "Reindeer",
   "PREREQ_PM" => {
+    "Carp" => 0,
+    "Class::Load" => 0,
     "Moose" => 0,
     "Moose::Exporter" => 0,
     "MooseX::AbstractMethod" => 0,
@@ -36,12 +39,13 @@ my %WriteMakefileArgs = (
     "MooseX::Types::Common::Numeric" => 0,
     "MooseX::Types::Common::String" => 0,
     "MooseX::Types::Moose" => 0,
+    "Sub::Install" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
-    "TESTS" => "t/*.t t/moosex-markasmethods/*.t"
+    "TESTS" => "t/*.t t/builder/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/optional-traits/*.t"
   }
 );
 

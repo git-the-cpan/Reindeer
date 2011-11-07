@@ -12,7 +12,7 @@ my $v = "\n";
 
 eval {                     # no excuses!
     # report our Perl details
-    my $want = '5.006';
+    my $want = '5.010';
     my $pv = ($^V || $]);
     $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
 };
@@ -48,11 +48,14 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
+eval { $v .= pmver('Carp','any version') };
+eval { $v .= pmver('Class::Load','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Exporter','any version') };
+eval { $v .= pmver('Moose::Util','any version') };
 eval { $v .= pmver('MooseX::AbstractMethod','any version') };
 eval { $v .= pmver('MooseX::AlwaysCoerce','any version') };
 eval { $v .= pmver('MooseX::AttributeShortcuts','0.006') };
@@ -62,6 +65,7 @@ eval { $v .= pmver('MooseX::StrictConstructor','any version') };
 eval { $v .= pmver('MooseX::Types::Common::Numeric','any version') };
 eval { $v .= pmver('MooseX::Types::Common::String','any version') };
 eval { $v .= pmver('MooseX::Types::Moose','any version') };
+eval { $v .= pmver('Sub::Install','any version') };
 eval { $v .= pmver('Test::Moose','any version') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('strict','any version') };

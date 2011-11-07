@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.002';
+  $Reindeer::Role::VERSION = '0.003';
 }
 
 # ABSTRACT: Reindeer in role form
@@ -23,6 +23,8 @@ use Moose::Exporter;
 my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
     install => [ qw{ import unimport }                      ],
     also    => [ 'Moose::Role', Reindeer::Util::also_list() ],
+
+    trait_aliases => [ Reindeer::Util::trait_aliases() ],
 );
 
 sub init_meta {
@@ -50,7 +52,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

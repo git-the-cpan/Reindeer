@@ -9,17 +9,13 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.002';
+  $Reindeer::Util::VERSION = '0.003';
 }
 
-# ABSTRACT: The great new Reindeer!
+# ABSTRACT: Common and utility functions for Reindeer
 
 use strict;
 use warnings;
-
-#use namespace::autoclean;
-#use common::sense;
-#use Moose::Exporter;
 
 use Moose                            ( );
 use MooseX::AlwaysCoerce             ( );
@@ -28,10 +24,30 @@ use MooseX::AttributeShortcuts 0.006 ( );
 use MooseX::NewDefaults              ( );
 use MooseX::MarkAsMethods 0.14       ( );
 use MooseX::StrictConstructor        ( );
+use MooseX::Types::Moose             ( );
+use MooseX::Types::Common::String    ( );
+use MooseX::Types::Common::Numeric   ( );
 
-use MooseX::Types::Moose           ( );
-use MooseX::Types::Common::String  ( );
-use MooseX::Types::Common::Numeric ( );
+# SetOnce, AutoDestruct, MultiInitArg, ClassAttribute
+# SlurpyConstructor, Params::Validate
+
+# Attribute traits (non-default):
+# UndefTolerant, MergeHashRef
+
+sub trait_aliases {
+
+    return (
+        [ 'MooseX::AutoDestruct::Trait::Attribute' => 'AutoDestruct'  ],
+        [ 'MooseX::MultiInitArg::Trait'            => 'MultiInitArg'  ],
+        [ 'MooseX::UndefTolerant::Attribute'       => 'UndefTolerant' ],
+    );
+}
+
+# Types:
+# Tied, Perl, IxHash, ENV
+
+# Roles:
+# TraitConstructor, Traits
 
 sub also_list {
 
@@ -71,11 +87,11 @@ sub type_libraries {
 
 =head1 NAME
 
-Reindeer::Util - The great new Reindeer!
+Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
