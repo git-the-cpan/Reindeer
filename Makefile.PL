@@ -33,17 +33,23 @@ my %WriteMakefileArgs = (
     "MooseX::AbstractMethod" => 0,
     "MooseX::AlwaysCoerce" => 0,
     "MooseX::AttributeShortcuts" => "0.006",
+    "MooseX::ClassAttribute" => "0.26",
+    "MooseX::LazyRequire" => "0.07",
     "MooseX::MarkAsMethods" => "0.14",
     "MooseX::NewDefaults" => 0,
     "MooseX::StrictConstructor" => 0,
     "MooseX::Types::Common::Numeric" => 0,
     "MooseX::Types::Common::String" => 0,
     "MooseX::Types::Moose" => 0,
+    "MooseX::Types::Path::Class" => 0,
+    "MooseX::Types::Tied::Hash::IxHash" => "0.002",
+    "Path::Class" => "0.24",
     "Sub::Install" => 0,
+    "Try::Tiny" => "0.11",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.003",
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/optional-traits/*.t"
   }

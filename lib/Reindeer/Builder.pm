@@ -9,7 +9,7 @@
 #
 package Reindeer::Builder;
 {
-  $Reindeer::Builder::VERSION = '0.003';
+  $Reindeer::Builder::VERSION = '0.004';
 }
 
 # ABSTRACT: Easily build a new 'Reindeer' style class
@@ -86,7 +86,7 @@ Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 

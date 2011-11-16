@@ -25,13 +25,19 @@ requires:
   MooseX::AbstractMethod: 0
   MooseX::AlwaysCoerce: 0
   MooseX::AttributeShortcuts: 0.006
+  MooseX::ClassAttribute: 0.26
+  MooseX::LazyRequire: 0.07
   MooseX::MarkAsMethods: 0.14
   MooseX::NewDefaults: 0
   MooseX::StrictConstructor: 0
   MooseX::Types::Common::Numeric: 0
   MooseX::Types::Common::String: 0
   MooseX::Types::Moose: 0
+  MooseX::Types::Path::Class: 0
+  MooseX::Types::Tied::Hash::IxHash: 0.002
+  Path::Class: 0.24
   Sub::Install: 0
+  Try::Tiny: 0.11
   perl: 5.010
   strict: 0
   warnings: 0
@@ -39,7 +45,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/reindeer/issues
   homepage: http://metacpan.org/release/Reindeer/
   repository: git://github.com/RsrchBoy/reindeer.git
-version: 0.003
+version: 0.004
 x_Dist_Zilla:
   plugins:
     -
@@ -185,7 +191,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@Filter/CheckPrereqsIndexed'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@Filter/GitHub::Meta'
