@@ -13,7 +13,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Moose;
+use Test::Moose::More 0.005;
 
 # This is more of a "spot check" than an actual set of tests
 
@@ -36,8 +36,6 @@ use Test::Moose;
 
     has two => (is => 'ro');
 }
-
-require 't/funcs.pm' unless eval { require funcs };
 
 # make sure classes behave as we expect
 with_immutable {

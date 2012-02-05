@@ -9,7 +9,7 @@
 #
 package Reindeer::Builder;
 {
-  $Reindeer::Builder::VERSION = '0.004';
+  $Reindeer::Builder::VERSION = '0.005';
 }
 
 # ABSTRACT: Easily build a new 'Reindeer' style class
@@ -80,13 +80,15 @@ sub import {
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -149,7 +151,33 @@ e.g.
 
 =head1 SEE ALSO
 
-L<Reindeer>, L<Moose::Exporter>.
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Reindeer|Reindeer>
+
+=item *
+
+L<L<Reindeer>, L<Moose::Exporter>.|L<Reindeer>, L<Moose::Exporter>.>
+
+=back
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/RsrchBoy/reindeer>
+and may be cloned from L<git://github.com/RsrchBoy/reindeer.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/reindeer/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

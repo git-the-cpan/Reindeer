@@ -15,8 +15,11 @@ my %WriteMakefileArgs = (
     "File::Find" => 0,
     "File::Temp" => 0,
     "Moose::Util" => 0,
+    "Test::Fatal" => 0,
     "Test::Moose" => 0,
-    "Test::More" => "0.88"
+    "Test::Moose::More" => "0.005",
+    "Test::More" => "0.88",
+    "Test::Requires" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -28,7 +31,7 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Carp" => 0,
     "Class::Load" => 0,
-    "Moose" => 0,
+    "Moose" => "1.15",
     "Moose::Exporter" => 0,
     "MooseX::AbstractMethod" => 0,
     "MooseX::AlwaysCoerce" => 0,
@@ -49,9 +52,9 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.004",
+  "VERSION" => "0.005",
   "test" => {
-    "TESTS" => "t/*.t t/builder/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/optional-traits/*.t"
+    "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/optional-traits/*.t"
   }
 );
 

@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.004';
+  $Reindeer::Util::VERSION = '0.005';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -19,7 +19,7 @@ use warnings;
 
 use Class::Load 'load_class';
 
-use Moose                                   ( );
+use Moose 1.15                              ( );
 use MooseX::AlwaysCoerce                    ( );
 use MooseX::AbstractMethod                  ( );
 use MooseX::AttributeShortcuts 0.006        ( );
@@ -38,6 +38,7 @@ use Path::Class 0.24 ( );
 use Try::Tiny 0.11   ( );
 
 # SlurpyConstructor, Params::Validate
+
 
 sub trait_aliases {
 
@@ -64,6 +65,7 @@ sub trait_aliases {
 sub SetOnce { _lazy('MooseX::SetOnce', 'MooseX::SetOnce::Attribute') }
 sub _lazy { load_class(shift); shift }
 
+
 sub as_is {
 
     return (
@@ -76,6 +78,7 @@ sub as_is {
 
 # Roles:
 # TraitConstructor, Traits
+
 
 sub also_list {
 
@@ -90,6 +93,7 @@ sub also_list {
     };
 }
 
+
 sub import_type_libraries {
     my ($class, $opts) = @_;
 
@@ -99,6 +103,7 @@ sub import_type_libraries {
 
     return;
 }
+
 
 sub type_libraries {
 
@@ -117,28 +122,76 @@ sub type_libraries {
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
 =head1 DESCRIPTION
 
+This package provides the parts of Reindeer that are common to both Reindeer
+and Reindeer role.  In general, this package contains functions that either
+return lists for L<Moose::Exporter> or actively import other packages into the
+namespace of packages invoking Reindeer or Reindeer::Role (e.g. type
+libraries).
+
+=head1 FUNCTIONS
+
+=head2 trait_aliases
+
+Trait alias definitions for our optional traits.
+
+=head2 as_is
+
+A list of sugar to export "as_is".
+
+=head2 also_list
+
+A list of Moose::Exporter based packages that we should also invoke (through
+Moose::Exporter, that is).
+
+=head2 import_type_libraries
+
+Import our list of type libraries into a given package.
+
+=head2 type_libraries
+
+Returns a list of type libraries currently exported by Reindeer.
+
+=for Pod::Coverage     SetOnce
+
 =head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Reindeer|Reindeer>
+
+=back
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/RsrchBoy/reindeer>
+and may be cloned from L<git://github.com/RsrchBoy/reindeer.git>
 
 =head1 BUGS
 
-All complex software has bugs lurking in it, and this module is no exception.
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/reindeer/issues
 
-Bugs, feature requests and pull requests through GitHub are most welcome; our
-page and repo (same URI):
-
-    https://github.com/RsrchBoy/reindeer
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

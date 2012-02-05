@@ -2,7 +2,7 @@ NAME
     Reindeer - Moose with more antlers
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
         # ta-da!
@@ -69,6 +69,17 @@ NEW ATTRIBUTE OPTIONS
         init_arg => undef
         lazy     => 1
 
+  is => 'lazy', default => ...
+    Specifing is => 'lazy' and a default will cause the following options to
+    be set:
+
+        is       => 'ro'
+        init_arg => undef
+        lazy     => 1
+
+    Note that this is the same as the prior option, but is included /
+    phrased in this way in a (successful, I hope) attempt at clarity.
+
   builder => 1
     Specifying builder => 1 will cause the following options to be set:
 
@@ -112,6 +123,9 @@ NEW ATTRIBUTE OPTIONS
 
     This naming scheme, in which the trigger is always private, is the same
     as the builder naming scheme (just with a different prefix).
+
+  doc => ...
+    "doc" may now be used as a shorthand for "documentation".
 
 NEW KEYWORDS (SUGAR)
     In addition to all sugar provided by Moose (e.g. has, with, extends), we
@@ -220,16 +234,24 @@ CAVEAT
     with his choices. YMMV :)
 
 SEE ALSO
-    Moose, Reindeer::Role, overload. All of the above referenced packages.
+    Please see those modules/websites for more information related to this
+    module.
+
+    *   Moose
+
+    *   All of the above referenced packages.
+
+SOURCE
+    The development version is on github at
+    <http://github.com/RsrchBoy/reindeer> and may be cloned from
+    <git://github.com/RsrchBoy/reindeer.git>
 
 BUGS
-    All complex software has bugs lurking in it, and this module is no
-    exception.
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/RsrchBoy/reindeer/issues
 
-    Bugs, feature requests and pull requests through GitHub are most
-    welcome; our page and repo (same URI):
-
-        https://github.com/RsrchBoy/reindeer
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Chris Weyl <cweyl@alumni.drew.edu>
