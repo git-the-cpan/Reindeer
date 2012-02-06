@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.005';
+  $Reindeer::Role::VERSION = '0.006';
 }
 
 # ABSTRACT: Reindeer in role form
@@ -56,7 +56,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 

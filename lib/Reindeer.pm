@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.005';
+  $Reindeer::VERSION = '0.006';
 }
 
 # ABSTRACT: Moose with more antlers
@@ -59,7 +59,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
