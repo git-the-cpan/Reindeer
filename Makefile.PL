@@ -19,7 +19,8 @@ my %WriteMakefileArgs = (
     "Test::Moose" => 0,
     "Test::Moose::More" => "0.005",
     "Test::More" => "0.88",
-    "Test::Requires" => 0
+    "Test::Requires" => 0,
+    "ok" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -37,24 +38,29 @@ my %WriteMakefileArgs = (
     "MooseX::AlwaysCoerce" => "0.16",
     "MooseX::AttributeShortcuts" => "0.006",
     "MooseX::ClassAttribute" => "0.26",
+    "MooseX::CurriedDelegation" => 0,
     "MooseX::LazyRequire" => "0.07",
     "MooseX::MarkAsMethods" => "0.14",
     "MooseX::NewDefaults" => "0.003",
     "MooseX::StrictConstructor" => "0.19",
+    "MooseX::Types::Combine" => 0,
     "MooseX::Types::Common::Numeric" => "0.001004",
     "MooseX::Types::Common::String" => "0.001004",
+    "MooseX::Types::LoadableClass" => "0.006",
     "MooseX::Types::Moose" => "0.31",
     "MooseX::Types::Path::Class" => "0.05",
     "MooseX::Types::Tied::Hash::IxHash" => "0.002",
     "Path::Class" => "0.24",
+    "Sub::Exporter" => 0,
     "Sub::Install" => 0,
     "Try::Tiny" => "0.11",
+    "base" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.006",
+  "VERSION" => "0.007",
   "test" => {
-    "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/optional-traits/*.t"
+    "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/optional-traits/*.t"
   }
 );
 

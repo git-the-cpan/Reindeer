@@ -2,7 +2,8 @@ NAME
     Reindeer - Moose with more antlers
 
 VERSION
-    version 0.006
+    This document describes 0.007 of Reindeer - released February 14, 2012
+    as part of Reindeer.
 
 SYNOPSIS
         # ta-da!
@@ -204,6 +205,7 @@ INCLUDED EXTENSIONS
   MooseX::AlwaysCoerce
   MooseX::AttributeShortcuts
   MooseX::ClassAttribute
+  MooseX::CurriedDelegation
   MooseX::LazyRequire
   MooseX::MarkAsMethods
     Note that this causes any overloads you've defined in your class/role to
@@ -215,6 +217,7 @@ INCLUDED TYPE LIBRARIES
   MooseX::Types::Moose
   MooseX::Types::Common::String
   MooseX::Types::Common::Numeric
+  MooseX::Types::LoadableClass
   MooseX::Types::Path::Class
   MooseX::Types::Tied::Hash::IxHash
 OTHER

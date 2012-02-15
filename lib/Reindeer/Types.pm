@@ -7,40 +7,22 @@
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
-package Reindeer::Role;
+package Reindeer::Types;
 {
-  $Reindeer::Role::VERSION = '0.007';
+  $Reindeer::Types::VERSION = '0.007';
 }
 
-# ABSTRACT: Reindeer in role form
+# ABSTRACT: Reindeer combined type library
 
 use strict;
 use warnings;
 
+use base 'MooseX::Types::Combine';
+
 use Reindeer::Util;
-use Moose::Exporter;
 
-my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
-    install => [ qw{ import unimport } ],
-
-    also          => [ 'Moose::Role', Reindeer::Util::also_list() ],
-    trait_aliases => [ Reindeer::Util::trait_aliases()            ],
-    as_is         => [ Reindeer::Util::as_is()                    ],
-);
-
-sub init_meta {
-    my ($class, %options) = @_;
-    my $for_class = $options{for_class};
-
-    ### $for_class
-    Moose::Role->init_meta(for_class => $for_class);
-    Reindeer::Util->import_type_libraries({ -into => $for_class });
-    Path::Class->export_to_level(1);
-    Try::Tiny->export_to_level(1);
-    MooseX::MarkAsMethods->import({ into => $for_class }, autoclean => 1);
-
-    goto $init_meta if defined $init_meta;
-}
+# no provision for filtering
+__PACKAGE__->provide_types_from(Reindeer::Util::type_libraries());
 
 !!42;
 
@@ -52,23 +34,26 @@ sub init_meta {
 
 =head1 NAME
 
-Reindeer::Role - Reindeer in role form
+Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes 0.007 of Reindeer::Role - released February 14, 2012 as part of Reindeer.
+This document describes 0.007 of Reindeer::Types - released February 14, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
-    # ta-da!
-    use Reindeer::Role;
+    package Foo;
+    use Moose;
+    use Reindeer::Types ':all';
 
 =head1 DESCRIPTION
 
-For now, see the L<Reindeer> docs for information about what meta extensions
-are automatically applied.
+This is a combined type library, allowing for the quick and easy import of all
+the type libraries L<Reindeer> provides by default.  Its primary goal is to
+make the types easily available even when using Reindeer isn't an option.
 
-=for Pod::Coverage     init_meta
+It is not necessary (or prudent) to directly use this in a Reindeer class (or
+role).
 
 =head1 SEE ALSO
 
@@ -82,7 +67,11 @@ L<Reindeer|Reindeer>
 
 =item *
 
-L<Moose::Role>
+L<L<Reindeer> has the full list of type libraries we incorporate.|L<Reindeer> has the full list of type libraries we incorporate.>
+
+=item *
+
+L<L<MooseX::Types::Combine>.|L<MooseX::Types::Combine>.>
 
 =back
 

@@ -9,13 +9,17 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.006';
+  $Reindeer::Util::VERSION = '0.007';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
 
 use strict;
 use warnings;
+
+use Sub::Exporter -setup => {
+    exports => [ qw{ trait_aliases as_is also_list type_libraries } ],
+};
 
 use Class::Load 'load_class';
 
@@ -24,6 +28,7 @@ use MooseX::AlwaysCoerce 0.16               ( );
 use MooseX::AbstractMethod 0.003            ( );
 use MooseX::AttributeShortcuts 0.006        ( );
 use MooseX::ClassAttribute 0.26             ( );
+use MooseX::CurriedDelegation               ( );
 use MooseX::LazyRequire 0.07                ( );
 use MooseX::MarkAsMethods 0.14              ( );
 use MooseX::NewDefaults 0.003               ( );
@@ -31,6 +36,7 @@ use MooseX::StrictConstructor 0.19          ( );
 use MooseX::Types::Moose 0.31               ( );
 use MooseX::Types::Common::String 0.001004  ( );
 use MooseX::Types::Common::Numeric 0.001004 ( );
+use MooseX::Types::LoadableClass 0.006      ( );
 use MooseX::Types::Path::Class 0.05         ( );
 use MooseX::Types::Tied::Hash::IxHash 0.002 ( );
 
@@ -87,6 +93,7 @@ sub also_list {
         MooseX::AlwaysCoerce
         MooseX::AttributeShortcuts
         MooseX::ClassAttribute
+        MooseX::CurriedDelegation
         MooseX::LazyRequire
         MooseX::NewDefaults
         MooseX::StrictConstructor
@@ -111,6 +118,7 @@ sub type_libraries {
         MooseX::Types::Moose
         MooseX::Types::Common::String
         MooseX::Types::Common::Numeric
+        MooseX::Types::LoadableClass
         MooseX::Types::Path::Class
         MooseX::Types::Tied::Hash::IxHash
     };
@@ -130,7 +138,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-version 0.006
+This document describes 0.007 of Reindeer::Util - released February 14, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
