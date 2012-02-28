@@ -9,7 +9,7 @@
 #
 package Reindeer::Types;
 {
-  $Reindeer::Types::VERSION = '0.007';
+  $Reindeer::Types::VERSION = '0.008';
 }
 
 # ABSTRACT: Reindeer combined type library
@@ -38,7 +38,7 @@ Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes 0.007 of Reindeer::Types - released February 14, 2012 as part of Reindeer.
+This document describes 0.008 of Reindeer::Types - released February 28, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -54,6 +54,112 @@ make the types easily available even when using Reindeer isn't an option.
 
 It is not necessary (or prudent) to directly use this in a Reindeer class (or
 role).
+
+=head1 TYPES
+
+=head2 LoadableClass
+
+A normal class / package.
+
+=head2 LoadableRole
+
+Like C<LoadableClass>, except the loaded package must be a L<Moose::Role>.
+
+=head2 SimpleStr
+
+A Str with no new-line characters.
+
+=head2 NonEmptySimpleStr
+
+A Str with no new-line characters and length > 0
+
+=head2 LowerCaseSimpleStr
+
+A Str with no new-line characters, length > 0 and all lowercase characters
+A coercion exists via C<lc> from NonEmptySimpleStr
+
+=head2 UpperCaseSimpleStr
+
+A Str with no new-line characters, length > 0 and all uppercase characters
+A coercion exists via C<uc> from NonEmptySimpleStr
+
+=head2 Password
+
+=head2 StrongPassword
+
+=head2 NonEmptyStr
+
+A Str with length > 0
+
+=head2 LowerCaseStr
+
+A Str with length > 0 and all lowercase characters.
+A coercion exists via C<lc> from NonEmptyStr
+
+=head2 UpperCaseStr
+
+A Str with length > 0 and all uppercase characters.
+A coercion exists via C<uc> from NonEmptyStr
+
+=head2 NumericCode
+
+A Str with no new-line characters that consists of only Numeric characters.
+Examples include, Social Security Numbers, PINs, Postal Codes, HTTP Status
+Codes, etc. Supports attempting to coerce from a string that has punctuation
+in it ( e.g credit card number 4111-1111-1111-1111 ).
+
+=head2 PositiveNum
+
+=head2 PositiveOrZeroNum
+
+=head2 PositiveInt
+
+=head2 PositiveOrZeroInt
+
+=head2 NegativeNum
+
+=head2 NegativeOrZeroNum
+
+=head2 NegativeInt
+
+=head2 NegativeOrZeroInt
+
+=head2 SingleDigit
+
+=head2 IxHash
+
+Basetype: TiedHash
+
+This type coerces from HashRef and ArrayRef.
+
+(See also L<MooseX::Types::Tied::Hash::IxHash>.)
+
+=head2 Dir
+
+    has 'dir' => (
+        is       => 'ro',
+        isa      => Dir,
+        required => 1,
+        coerce   => 1,
+    );
+
+(See also L<MooseX::Types::Path::Class>.)
+
+=head2 File
+
+    has 'file' => (
+        is       => 'ro',
+        isa      => File,
+        required => 1,
+        coerce   => 1,
+    );
+
+(See also L<MooseX::Types::Path::Class>.)
+
+=head2 MooseX::Types::Moose
+
+We provide all Moose native types by including L<MooseX::Types::Moose>; see
+that package for more information.
 
 =head1 SEE ALSO
 

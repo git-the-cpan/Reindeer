@@ -1,5 +1,8 @@
 Revision history for Reindeer
 
+0.008     2012-02-28 14:31:07 America/Los_Angeles
+- pod/documentation update only
+
 0.007     2012-02-14 20:47:12 America/Los_Angeles
 - add: MooseX::CurriedDelegation
 - add: MooseX::Types::LoadableClass

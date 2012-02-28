@@ -14,7 +14,6 @@ lib/Reindeer/Types.pm
 lib/Reindeer/Util.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
-t/author-pod-spell.t
 t/basic_load.t
 t/builder/basic.t
 t/moosex-abstract/basic.t
@@ -23,7 +22,6 @@ t/moosex-markasmethods/basic.t
 t/moosex-newdefaults/basic.t
 t/moosex-strictconstructor/basic.t
 t/optional-traits/autodestruct.t
-t/release-eol.t
 t/release-has-version.t
 t/release-no-smart-comments.t
 t/release-no-tabs.t
