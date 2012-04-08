@@ -9,7 +9,7 @@
 #
 package Reindeer::Builder;
 {
-  $Reindeer::Builder::VERSION = '0.008';
+  $Reindeer::Builder::VERSION = '0.009'; # TRIAL
 }
 
 # ABSTRACT: Easily build a new 'Reindeer' style class
@@ -88,7 +88,7 @@ Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-This document describes 0.008 of Reindeer::Builder - released February 28, 2012 as part of Reindeer.
+This document describes version 0.009 of Reindeer::Builder - released April 07, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

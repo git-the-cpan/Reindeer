@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
     "Moose::Util" => 0,
     "Test::Fatal" => 0,
     "Test::Moose" => 0,
-    "Test::Moose::More" => "0.005",
+    "Test::Moose::More" => "0.006",
     "Test::More" => "0.88",
     "Test::Requires" => 0,
     "ok" => 0
@@ -43,6 +43,7 @@ my %WriteMakefileArgs = (
     "MooseX::MarkAsMethods" => "0.14",
     "MooseX::NewDefaults" => "0.003",
     "MooseX::StrictConstructor" => "0.19",
+    "MooseX::Traits" => 0,
     "MooseX::Types::Combine" => 0,
     "MooseX::Types::Common::Numeric" => "0.001004",
     "MooseX::Types::Common::String" => "0.001004",
@@ -58,9 +59,9 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.008",
+  "VERSION" => "0.009",
   "test" => {
-    "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/optional-traits/*.t"
+    "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }
 );
 
