@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.009'; # TRIAL
+  $Reindeer::VERSION = '0.010';
 }
 
 # ABSTRACT: Moose with more antlers
@@ -63,7 +63,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.009 of Reindeer - released April 07, 2012 as part of Reindeer.
+This document describes version 0.010 of Reindeer - released April 25, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

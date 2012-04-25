@@ -9,7 +9,7 @@
 #
 package Reindeer::Types;
 {
-  $Reindeer::Types::VERSION = '0.009'; # TRIAL
+  $Reindeer::Types::VERSION = '0.010';
 }
 
 # ABSTRACT: Reindeer combined type library
@@ -38,7 +38,7 @@ Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes version 0.009 of Reindeer::Types - released April 07, 2012 as part of Reindeer.
+This document describes version 0.010 of Reindeer::Types - released April 25, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -128,9 +128,13 @@ in it ( e.g credit card number 4111-1111-1111-1111 ).
 
 =head2 IxHash
 
-Basetype: TiedHash
+Base type: TiedHash
 
-This type coerces from HashRef and ArrayRef.
+This type coerces from ArrayRef.  As of 0.004 we no longer coerce from
+HashRef, as that lead to 1) annoyingly easy to miss errors involving expecting
+C<$thing->attribute( { a => 1, b => 2, ... } )> to result in proper ordering;
+and 2) the Hash native trait appearing to work normally but instead silently
+destroying the preserved order (during certain write operations).
 
 (See also L<MooseX::Types::Tied::Hash::IxHash>.)
 

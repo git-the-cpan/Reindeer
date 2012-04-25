@@ -50,7 +50,7 @@ my %WriteMakefileArgs = (
     "MooseX::Types::LoadableClass" => "0.006",
     "MooseX::Types::Moose" => "0.31",
     "MooseX::Types::Path::Class" => "0.05",
-    "MooseX::Types::Tied::Hash::IxHash" => "0.002",
+    "MooseX::Types::Tied::Hash::IxHash" => "0.003",
     "Path::Class" => "0.24",
     "Sub::Exporter" => 0,
     "Sub::Install" => 0,
@@ -59,7 +59,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.009",
+  "VERSION" => "0.010",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }

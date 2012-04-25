@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.009'; # TRIAL
+  $Reindeer::Util::VERSION = '0.010';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -38,7 +38,7 @@ use MooseX::Types::Common::String 0.001004  ( );
 use MooseX::Types::Common::Numeric 0.001004 ( );
 use MooseX::Types::LoadableClass 0.006      ( );
 use MooseX::Types::Path::Class 0.05         ( );
-use MooseX::Types::Tied::Hash::IxHash 0.002 ( );
+use MooseX::Types::Tied::Hash::IxHash 0.003 ( );
 
 use Path::Class 0.24 ( );
 use Try::Tiny 0.11   ( );
@@ -138,7 +138,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.009 of Reindeer::Util - released April 07, 2012 as part of Reindeer.
+This document describes version 0.010 of Reindeer::Util - released April 25, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

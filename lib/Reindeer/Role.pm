@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.009'; # TRIAL
+  $Reindeer::Role::VERSION = '0.010';
 }
 
 # ABSTRACT: Reindeer in role form
@@ -56,7 +56,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-This document describes version 0.009 of Reindeer::Role - released April 07, 2012 as part of Reindeer.
+This document describes version 0.010 of Reindeer::Role - released April 25, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
