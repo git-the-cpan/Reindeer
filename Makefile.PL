@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
     "Moose::Util" => 0,
     "Test::Fatal" => 0,
     "Test::Moose" => 0,
-    "Test::Moose::More" => "0.006",
+    "Test::Moose::More" => "0.009",
     "Test::More" => "0.88",
     "Test::Requires" => 0,
     "ok" => 0
@@ -59,7 +59,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.010",
+  "VERSION" => "0.011",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }

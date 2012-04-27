@@ -23,6 +23,7 @@ t/moosex-newdefaults/basic.t
 t/moosex-strictconstructor/basic.t
 t/moosex-traits/basic.t
 t/optional-traits/autodestruct.t
+t/optional-traits/env.t
 t/release-has-version.t
 t/release-no-smart-comments.t
 t/release-no-tabs.t

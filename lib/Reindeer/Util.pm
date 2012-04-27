@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.010';
+  $Reindeer::Util::VERSION = '0.011';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -56,7 +56,7 @@ sub trait_aliases {
         [ 'MooseX::TrackDirty::Attributes::Trait::Attribute' => 'TrackDirty'    ],
         [ 'MooseX::UndefTolerant::Attribute'                 => 'UndefTolerant' ],
 
-        # LazyRequire doesn't export a trait_alias, so let's create one
+        # these don't export a trait_alias, so let's create one
         'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire',
 
         # this one is a little funky, in that it replaces the accessor
@@ -68,13 +68,15 @@ sub trait_aliases {
 # If an extension doesn't have a trait that's directly loadable, we build subs
 # to do it here.
 
+sub ENV     { _lazy('MooseX::Attribute::ENV', 'MooseX::Attribute::ENV') }
 sub SetOnce { _lazy('MooseX::SetOnce', 'MooseX::SetOnce::Attribute') }
-sub _lazy { load_class(shift); shift }
+sub _lazy   { load_class(shift); shift }
 
 
 sub as_is {
 
     return (
+        \&ENV,
         \&SetOnce,
     );
 }
@@ -138,7 +140,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.010 of Reindeer::Util - released April 25, 2012 as part of Reindeer.
+This document describes version 0.011 of Reindeer::Util - released April 26, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

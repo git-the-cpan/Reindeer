@@ -59,7 +59,7 @@
             "Moose::Util" : "0",
             "Test::Fatal" : "0",
             "Test::Moose" : "0",
-            "Test::Moose::More" : "0.006",
+            "Test::Moose::More" : "0.009",
             "Test::More" : "0.88",
             "Test::Requires" : "0",
             "ok" : "0"
@@ -78,7 +78,7 @@
          "web" : "https://github.com/RsrchBoy/reindeer"
       }
    },
-   "version" : "0.010",
+   "version" : "0.011",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -269,12 +269,12 @@
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Meta",
             "name" : "@Filter/GitHub::Meta",
-            "version" : "0.18"
+            "version" : "0.19"
          },
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Update",
             "name" : "@Filter/GitHub::Update",
-            "version" : "0.18"
+            "version" : "0.19"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",
