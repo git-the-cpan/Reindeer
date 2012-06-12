@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.011';
+  $Reindeer::Role::VERSION = '0.012';
 }
 
 # ABSTRACT: Reindeer in role form
@@ -37,6 +37,10 @@ sub init_meta {
     Reindeer::Util->import_type_libraries({ -into => $for_class });
     Path::Class->export_to_level(1);
     Try::Tiny->export_to_level(1);
+    Moose::Util::TypeConstraints->import(
+        { into => $for_class },
+        qw{ class_type role_type duck_type },
+    );
     MooseX::MarkAsMethods->import({ into => $for_class }, autoclean => 1);
 
     goto $init_meta if defined $init_meta;
@@ -50,13 +54,15 @@ sub init_meta {
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-This document describes version 0.011 of Reindeer::Role - released April 26, 2012 as part of Reindeer.
+This document describes version 0.012 of Reindeer::Role - released June 12, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

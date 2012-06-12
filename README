@@ -2,7 +2,7 @@ NAME
     Reindeer - Moose with more antlers
 
 VERSION
-    This document describes version 0.011 of Reindeer - released April 26,
+    This document describes version 0.012 of Reindeer - released June 12,
     2012 as part of Reindeer.
 
 SYNOPSIS
@@ -141,6 +141,36 @@ NEW ATTRIBUTE OPTIONS
 NEW KEYWORDS (SUGAR)
     In addition to all sugar provided by Moose (e.g. has, with, extends), we
     provide a couple new keywords.
+
+  class_type ($class, ?$options)
+    Creates a new subtype of "Object" with the name $class and the metaclass
+    Moose::Meta::TypeConstraint::Class.
+
+      # Create a type called 'Box' which tests for objects which ->isa('Box')
+      class_type 'Box';
+
+    By default, the name of the type and the name of the class are the same,
+    but you can specify both separately.
+
+      # Create a type called 'Box' which tests for objects which ->isa('ObjectLibrary::Box');
+      class_type 'Box', { class => 'ObjectLibrary::Box' };
+
+    (See also Moose::Util::TypeConstraints.)
+
+  role_type ($role, ?$options)
+    Creates a "Role" type constraint with the name $role and the metaclass
+    Moose::Meta::TypeConstraint::Role.
+
+      # Create a type called 'Walks' which tests for objects which ->does('Walks')
+      role_type 'Walks';
+
+    By default, the name of the type and the name of the role are the same,
+    but you can specify both separately.
+
+      # Create a type called 'Walks' which tests for objects which ->does('MooseX::Role::Walks');
+      role_type 'Walks', { role => 'MooseX::Role::Walks' };
+
+    (See also Moose::Util::TypeConstraints.)
 
   class_has => (...)
     Exactly like "has" in Moose, but operates at the class (rather than

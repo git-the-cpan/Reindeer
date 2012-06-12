@@ -9,7 +9,7 @@
 #
 package Reindeer::Types;
 {
-  $Reindeer::Types::VERSION = '0.011';
+  $Reindeer::Types::VERSION = '0.012';
 }
 
 # ABSTRACT: Reindeer combined type library
@@ -32,13 +32,15 @@ __PACKAGE__->provide_types_from(Reindeer::Util::type_libraries());
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes version 0.011 of Reindeer::Types - released April 26, 2012 as part of Reindeer.
+This document describes version 0.012 of Reindeer::Types - released June 12, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

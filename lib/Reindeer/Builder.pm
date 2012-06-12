@@ -9,7 +9,7 @@
 #
 package Reindeer::Builder;
 {
-  $Reindeer::Builder::VERSION = '0.011';
+  $Reindeer::Builder::VERSION = '0.012';
 }
 
 # ABSTRACT: Easily build a new 'Reindeer' style class
@@ -82,13 +82,15 @@ sub import {
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl metaclass
+
 =head1 NAME
 
 Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-This document describes version 0.011 of Reindeer::Builder - released April 26, 2012 as part of Reindeer.
+This document describes version 0.012 of Reindeer::Builder - released June 12, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -116,8 +118,6 @@ Reindeer::Builder provides a simple interface to add additional extensions --
 or filter the list of default extensions.  It's intended to be used in a
 package of its own that can then be used in the same way L<Moose> or
 L<Reindeer> is in a package, to set up the metaclass and sugar.
-
-=for stopwords     metaclass
 
 =head1 ROLE OR CLASS?
 

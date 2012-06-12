@@ -56,6 +56,7 @@ eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Moose','1.15') };
 eval { $v .= pmver('Moose::Exporter','any version') };
 eval { $v .= pmver('Moose::Util','any version') };
+eval { $v .= pmver('Moose::Util::TypeConstraints','any version') };
 eval { $v .= pmver('MooseX::AbstractMethod','0.003') };
 eval { $v .= pmver('MooseX::AlwaysCoerce','0.16') };
 eval { $v .= pmver('MooseX::AttributeShortcuts','0.006') };

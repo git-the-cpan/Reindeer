@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.011';
+  $Reindeer::Util::VERSION = '0.012';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -134,13 +134,15 @@ sub type_libraries {
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.011 of Reindeer::Util - released April 26, 2012 as part of Reindeer.
+This document describes version 0.012 of Reindeer::Util - released June 12, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
