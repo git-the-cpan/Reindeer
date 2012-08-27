@@ -9,7 +9,7 @@
 #
 package Reindeer::Builder;
 {
-  $Reindeer::Builder::VERSION = '0.012';
+  $Reindeer::Builder::VERSION = '0.013';
 }
 
 # ABSTRACT: Easily build a new 'Reindeer' style class
@@ -76,7 +76,7 @@ sub import {
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -90,7 +90,7 @@ Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-This document describes version 0.012 of Reindeer::Builder - released June 12, 2012 as part of Reindeer.
+This document describes version 0.013 of Reindeer::Builder - released August 27, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -194,7 +194,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-

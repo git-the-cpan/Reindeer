@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.012';
+  $Reindeer::VERSION = '0.013';
 }
 
 # ABSTRACT: Moose with more antlers
@@ -56,7 +56,7 @@ sub init_meta {
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -71,7 +71,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.012 of Reindeer - released June 12, 2012 as part of Reindeer.
+This document describes version 0.013 of Reindeer - released August 27, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -219,6 +219,21 @@ For an attribute named "_foo":
 
 This naming scheme, in which the trigger is always private, is the same as the
 builder naming scheme (just with a different prefix).
+
+=head2 builder => sub { ... }
+
+Passing a coderef to builder will cause that coderef to be installed in the
+class this attribute is associated with the name you'd expect, and
+C<builder =E<gt> 1> to be set.
+
+e.g., in your class,
+
+    has foo => (is => 'ro', builder => sub { 'bar!' });
+
+...is effectively the same as...
+
+    has foo => (is => 'ro', builder => '_build_foo');
+    sub _build_foo { 'bar!' }
 
 =head1 NEW KEYWORDS (SUGAR)
 
@@ -568,7 +583,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-

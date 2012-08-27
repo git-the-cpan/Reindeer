@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.012';
+  $Reindeer::Util::VERSION = '0.013';
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -26,7 +26,7 @@ use Class::Load 'load_class';
 use Moose 1.15                              ( );
 use MooseX::AlwaysCoerce 0.16               ( );
 use MooseX::AbstractMethod 0.003            ( );
-use MooseX::AttributeShortcuts 0.006        ( );
+use MooseX::AttributeShortcuts 0.015        ( );
 use MooseX::ClassAttribute 0.26             ( );
 use MooseX::CurriedDelegation               ( );
 use MooseX::LazyRequire 0.07                ( );
@@ -128,7 +128,7 @@ sub type_libraries {
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -142,7 +142,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.012 of Reindeer::Util - released June 12, 2012 as part of Reindeer.
+This document describes version 0.013 of Reindeer::Util - released August 27, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -218,7 +218,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-

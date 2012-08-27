@@ -9,7 +9,7 @@
 #
 package Reindeer::Types;
 {
-  $Reindeer::Types::VERSION = '0.012';
+  $Reindeer::Types::VERSION = '0.013';
 }
 
 # ABSTRACT: Reindeer combined type library
@@ -26,7 +26,7 @@ __PACKAGE__->provide_types_from(Reindeer::Util::type_libraries());
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -40,7 +40,7 @@ Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes version 0.012 of Reindeer::Types - released June 12, 2012 as part of Reindeer.
+This document describes version 0.013 of Reindeer::Types - released August 27, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -77,12 +77,12 @@ A Str with no new-line characters and length > 0
 
 =head2 LowerCaseSimpleStr
 
-A Str with no new-line characters, length > 0 and all lowercase characters
+A Str with no new-line characters, length > 0 and no uppercase characters
 A coercion exists via C<lc> from NonEmptySimpleStr
 
 =head2 UpperCaseSimpleStr
 
-A Str with no new-line characters, length > 0 and all uppercase characters
+A Str with no new-line characters, length > 0 and no lowercase characters
 A coercion exists via C<uc> from NonEmptySimpleStr
 
 =head2 Password
@@ -95,12 +95,12 @@ A Str with length > 0
 
 =head2 LowerCaseStr
 
-A Str with length > 0 and all lowercase characters.
+A Str with length > 0 and no uppercase characters.
 A coercion exists via C<lc> from NonEmptyStr
 
 =head2 UpperCaseStr
 
-A Str with length > 0 and all uppercase characters.
+A Str with length > 0 and no lowercase characters.
 A coercion exists via C<uc> from NonEmptyStr
 
 =head2 NumericCode
@@ -214,7 +214,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-

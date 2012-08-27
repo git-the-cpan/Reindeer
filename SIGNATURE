@@ -1,0 +1,63 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 ec02709d0eaa7ae59a52f471376276b87ce906d3 Changes
+SHA1 63a764995dc65a4121205703d976a93ef7cb6778 INSTALL
+SHA1 514760f01d379ad532c49a196f1c6f7912b65556 LICENSE
+SHA1 25411aded005056c6ff5a9cc726d0440d73058e4 MANIFEST
+SHA1 3ffb8f7238d5700fe48170dd3b1f56c34665026f META.json
+SHA1 0f75cc1270421b02311867aa0e6b37b3f01a897c META.yml
+SHA1 1142329420289ae82a5741f236d7295ba2035c12 Makefile.PL
+SHA1 890b5d3c41a9dc60ccffd829a76be69e9ca29e06 README
+SHA1 30e5e299a593aa5b78023a957f61b36d5c2c43da dist.ini
+SHA1 29c685113c8c9311d45dabf11e6b01c6a56f418c lib/Reindeer.pm
+SHA1 c5cf769d5f1a2f618b97de9a839439901fbd2c39 lib/Reindeer/Builder.pm
+SHA1 1bfe526f5c54ea55410678c6297903c492f49e30 lib/Reindeer/Role.pm
+SHA1 06a7dedcdf175952148b904cf2db8f376aaf2593 lib/Reindeer/Types.pm
+SHA1 dac9f75fef20a26f4a9ef0f6d0346ca941da30f2 lib/Reindeer/Util.pm
+SHA1 1232947604b381f5b5f3aa1db08f93c1e81081d0 t/00-compile.t
+SHA1 0731af7c58ad29f3534d308fa923588e7dc03482 t/000-report-versions-tiny.t
+SHA1 3e348ed80b868b9a0416a6560602f4b7680bd6b2 t/basic_load.t
+SHA1 2353915bac7c7a6465336e2f90fc78bc6a880a9b t/builder/basic.t
+SHA1 00f68111ad0ef897c93f55710b5a141d16b89535 t/imports.t
+SHA1 2c1c7633c38330cb42069c0242a77cd4833a39c8 t/moosex-abstract/basic.t
+SHA1 b4fb06c47d6358edf31080c65d8344c9b9f065cb t/moosex-currieddelegation/basic.t
+SHA1 023f4f481ec818c680c97ce8776e8a2f011cdf72 t/moosex-markasmethods/basic.t
+SHA1 44e58d1e22f81d02bdecfadf0e25e2be0b7fb51d t/moosex-newdefaults/basic.t
+SHA1 2614949b2857dc5e2ae54eef7788dae3e311990c t/moosex-strictconstructor/basic.t
+SHA1 e15c18bb30f4ae380ac46c13e71dede45749a622 t/moosex-traits/basic.t
+SHA1 b3806bc38f7e31d85350b23500986932cba4fb57 t/optional-traits/autodestruct.t
+SHA1 b864cda3f7fb18567f9d988b5afdc94f36447fc4 t/optional-traits/env.t
+SHA1 40a6c44594d3305401c3267df9ee69f67b3c2983 t/optional-traits/undeftolerant.t
+SHA1 516b9bccfc7293bb4145a971805e9fbb22c7eef1 t/release-has-version.t
+SHA1 786c057d0161fa2877476f192e22bb6667a8c9d7 t/release-no-smart-comments.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 b29141de8425d231c8059d1bf74d4f2081f4eca1 t/release-pod-coverage.t
+SHA1 242075d084e226d2292196e72db1f9c3ccb64ba5 t/release-pod-syntax.t
+SHA1 aa86c91d7fc02165ec93a477e4af7de48ccf3f70 t/release-portability.t
+SHA1 c7c81296979671d82ddca9651ea4ef9ad0e7ccae t/types.t
+SHA1 6b69fc6c25cbe8bbf6b7552689bd0619b30ec56d weaver.ini
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQEcBAEBAgAGBQJQOxvAAAoJEOd5N1CvIgQksosH/iRbE+g935I1nWaiyh43mU24
+K/KjTV3sH+ov6y/1gIn7001v3ZsaG0BMGZ2+GoeLH9wyHugRcteQ9S+n/q1WRljE
+iDGXVhc1DzZy7CFzA/j1i3MleSEfU0jGqjdUJ5Y4nwbvJJ4768YiuqP2b7HxOUd4
+JhrMG0OAvIavlgLlB66OTgVcR4IESyG052d6I54fhvZl5BfpzTmDxi57J31gUhX2
+v1W6tBZB0hKKLBjcDhzqVFqwkretuCF3Qt2MhyQlnCxzTStKPjdXS5PsJ/cynS5j
+iQoD6sxwOZBrYZ0zR/WGrpHBAswXmIyMDhCitHuSThG+JJMWyezU2Xl7sKdrySo=
+=e+tU
+-----END PGP SIGNATURE-----

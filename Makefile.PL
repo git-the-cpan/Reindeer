@@ -37,7 +37,7 @@ my %WriteMakefileArgs = (
     "Moose::Util::TypeConstraints" => 0,
     "MooseX::AbstractMethod" => "0.003",
     "MooseX::AlwaysCoerce" => "0.16",
-    "MooseX::AttributeShortcuts" => "0.006",
+    "MooseX::AttributeShortcuts" => "0.015",
     "MooseX::ClassAttribute" => "0.26",
     "MooseX::CurriedDelegation" => 0,
     "MooseX::LazyRequire" => "0.07",
@@ -60,7 +60,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.012",
+  "VERSION" => "0.013",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }

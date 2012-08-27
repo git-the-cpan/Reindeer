@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.012';
+  $Reindeer::Role::VERSION = '0.013';
 }
 
 # ABSTRACT: Reindeer in role form
@@ -48,7 +48,7 @@ sub init_meta {
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -62,7 +62,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-This document describes version 0.012 of Reindeer::Role - released June 12, 2012 as part of Reindeer.
+This document describes version 0.013 of Reindeer::Role - released August 27, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -119,7 +119,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-
