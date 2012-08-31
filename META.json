@@ -76,26 +76,26 @@
    "provides" : {
       "Reindeer" : {
          "file" : "lib/Reindeer.pm",
-         "version" : "0.013"
+         "version" : "0.014"
       },
       "Reindeer::Builder" : {
          "file" : "lib/Reindeer/Builder.pm",
-         "version" : "0.013"
+         "version" : "0.014"
       },
       "Reindeer::Role" : {
          "file" : "lib/Reindeer/Role.pm",
-         "version" : "0.013"
+         "version" : "0.014"
       },
       "Reindeer::Types" : {
          "file" : "lib/Reindeer/Types.pm",
-         "version" : "0.013"
+         "version" : "0.014"
       },
       "Reindeer::Util" : {
          "file" : "lib/Reindeer/Util.pm",
-         "version" : "0.013"
+         "version" : "0.014"
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/RsrchBoy/reindeer/issues"
@@ -107,7 +107,7 @@
          "web" : "https://github.com/RsrchBoy/reindeer"
       }
    },
-   "version" : "0.013",
+   "version" : "0.014",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -389,7 +389,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "0"
+            "is_trial" : "1"
          },
          "version" : "4.300021"
       }

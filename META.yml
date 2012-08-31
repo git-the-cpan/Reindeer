@@ -28,19 +28,19 @@ no_index:
 provides:
   Reindeer:
     file: lib/Reindeer.pm
-    version: 0.013
+    version: 0.014
   Reindeer::Builder:
     file: lib/Reindeer/Builder.pm
-    version: 0.013
+    version: 0.014
   Reindeer::Role:
     file: lib/Reindeer/Role.pm
-    version: 0.013
+    version: 0.014
   Reindeer::Types:
     file: lib/Reindeer/Types.pm
-    version: 0.013
+    version: 0.014
   Reindeer::Util:
     file: lib/Reindeer/Util.pm
-    version: 0.013
+    version: 0.014
 requires:
   Carp: 0
   Class::Load: 0
@@ -76,7 +76,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/reindeer/issues
   homepage: http://metacpan.org/release/Reindeer/
   repository: git://github.com/RsrchBoy/reindeer.git
-version: 0.013
+version: 0.014
 x_Dist_Zilla:
   plugins:
     -
@@ -302,5 +302,5 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 0
+      is_trial: 1
     version: 4.300021

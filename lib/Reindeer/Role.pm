@@ -9,7 +9,7 @@
 #
 package Reindeer::Role;
 {
-  $Reindeer::Role::VERSION = '0.013';
+  $Reindeer::Role::VERSION = '0.014'; # TRIAL
 }
 
 # ABSTRACT: Reindeer in role form
@@ -31,6 +31,12 @@ my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
 sub init_meta {
     my ($class, %options) = @_;
     my $for_class = $options{for_class};
+
+    if ($] >= 5.010) {
+
+        eval 'use feature';
+        feature->import(':5.10');
+    }
 
     ### $for_class
     Moose::Role->init_meta(for_class => $for_class);
@@ -62,7 +68,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-This document describes version 0.013 of Reindeer::Role - released August 27, 2012 as part of Reindeer.
+This document describes version 0.014 of Reindeer::Role - released August 31, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

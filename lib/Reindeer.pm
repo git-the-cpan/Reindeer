@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.013';
+  $Reindeer::VERSION = '0.014'; # TRIAL
 }
 
 # ABSTRACT: Moose with more antlers
@@ -37,6 +37,12 @@ my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
 sub init_meta {
     my ($class, %options) = @_;
     my $for_class = $options{for_class};
+
+    if ($] >= 5.010) {
+
+        eval 'use feature';
+        feature->import(':5.10');
+    }
 
     ### $for_class
     Moose->init_meta(for_class => $for_class);
@@ -71,7 +77,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.013 of Reindeer - released August 27, 2012 as part of Reindeer.
+This document describes version 0.014 of Reindeer - released August 31, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 

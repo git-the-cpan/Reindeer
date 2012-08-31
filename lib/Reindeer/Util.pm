@@ -9,7 +9,7 @@
 #
 package Reindeer::Util;
 {
-  $Reindeer::Util::VERSION = '0.013';
+  $Reindeer::Util::VERSION = '0.014'; # TRIAL
 }
 
 # ABSTRACT: Common and utility functions for Reindeer
@@ -142,7 +142,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.013 of Reindeer::Util - released August 27, 2012 as part of Reindeer.
+This document describes version 0.014 of Reindeer::Util - released August 31, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
