@@ -60,7 +60,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.014",
+  "VERSION" => "0.015",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }

@@ -9,7 +9,7 @@
 #
 package Reindeer;
 {
-  $Reindeer::VERSION = '0.014'; # TRIAL
+  $Reindeer::VERSION = '0.015';
 }
 
 # ABSTRACT: Moose with more antlers
@@ -77,7 +77,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.014 of Reindeer - released August 31, 2012 as part of Reindeer.
+This document describes version 0.015 of Reindeer - released September 06, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -466,6 +466,11 @@ traits in on the fly:
 =head1 OTHER
 
 Non-Moose specific items made available to your class/role:
+
+=head2 Perl v5.10 features
+
+If you're running on v5.10 or greater of Perl, Reindeer will automatically
+enable v5.10 features in the consuming class.
 
 =head2 L<namespace::autoclean>
 

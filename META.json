@@ -76,26 +76,26 @@
    "provides" : {
       "Reindeer" : {
          "file" : "lib/Reindeer.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Reindeer::Builder" : {
          "file" : "lib/Reindeer/Builder.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Reindeer::Role" : {
          "file" : "lib/Reindeer/Role.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Reindeer::Types" : {
          "file" : "lib/Reindeer/Types.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       },
       "Reindeer::Util" : {
          "file" : "lib/Reindeer/Util.pm",
-         "version" : "0.014"
+         "version" : "0.015"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/RsrchBoy/reindeer/issues"
@@ -107,7 +107,7 @@
          "web" : "https://github.com/RsrchBoy/reindeer"
       }
    },
-   "version" : "0.014",
+   "version" : "0.015",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -118,27 +118,27 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@Filter/@Git/Check",
-            "version" : "1.121820"
+            "version" : "1.122460"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@Filter/@Git/Commit",
-            "version" : "1.121820"
+            "version" : "1.122460"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Filter/@Git/Tag",
-            "version" : "1.121820"
+            "version" : "1.122460"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
             "name" : "@Filter/@Git/Push",
-            "version" : "1.121820"
+            "version" : "1.122460"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@Filter/Dist::Zilla::Plugin::Git::NextVersion",
-            "version" : "1.121820"
+            "version" : "1.122460"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch",
@@ -389,7 +389,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "4.300021"
       }
