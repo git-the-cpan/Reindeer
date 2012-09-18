@@ -28,23 +28,24 @@ no_index:
 provides:
   Reindeer:
     file: lib/Reindeer.pm
-    version: 0.015
+    version: 0.016
   Reindeer::Builder:
     file: lib/Reindeer/Builder.pm
-    version: 0.015
+    version: 0.016
   Reindeer::Role:
     file: lib/Reindeer/Role.pm
-    version: 0.015
+    version: 0.016
   Reindeer::Types:
     file: lib/Reindeer/Types.pm
-    version: 0.015
+    version: 0.016
   Reindeer::Util:
     file: lib/Reindeer/Util.pm
-    version: 0.015
+    version: 0.016
 requires:
   Carp: 0
   Class::Load: 0
   Moose: 1.15
+  Moose::Autobox: 0
   Moose::Exporter: 0
   Moose::Util::TypeConstraints: 0
   MooseX::AbstractMethod: 0.003
@@ -69,14 +70,14 @@ requires:
   Sub::Install: 0
   Try::Tiny: 0.11
   base: 0
-  perl: 5.010
+  perl: 5.006
   strict: 0
   warnings: 0
 resources:
   bugtracker: https://github.com/RsrchBoy/reindeer/issues
   homepage: http://metacpan.org/release/Reindeer/
   repository: git://github.com/RsrchBoy/reindeer.git
-version: 0.015
+version: 0.016
 x_Dist_Zilla:
   plugins:
     -

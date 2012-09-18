@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.010;
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -33,6 +33,7 @@ my %WriteMakefileArgs = (
     "Carp" => 0,
     "Class::Load" => 0,
     "Moose" => "1.15",
+    "Moose::Autobox" => 0,
     "Moose::Exporter" => 0,
     "Moose::Util::TypeConstraints" => 0,
     "MooseX::AbstractMethod" => "0.003",
@@ -60,7 +61,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.015",
+  "VERSION" => "0.016",
   "test" => {
     "TESTS" => "t/*.t t/builder/*.t t/moosex-abstract/*.t t/moosex-currieddelegation/*.t t/moosex-markasmethods/*.t t/moosex-newdefaults/*.t t/moosex-strictconstructor/*.t t/moosex-traits/*.t t/optional-traits/*.t"
   }

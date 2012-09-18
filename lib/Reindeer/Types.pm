@@ -9,7 +9,7 @@
 #
 package Reindeer::Types;
 {
-  $Reindeer::Types::VERSION = '0.015';
+  $Reindeer::Types::VERSION = '0.016';
 }
 
 # ABSTRACT: Reindeer combined type library
@@ -40,7 +40,7 @@ Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes version 0.015 of Reindeer::Types - released September 06, 2012 as part of Reindeer.
+This document describes version 0.016 of Reindeer::Types - released September 17, 2012 as part of Reindeer.
 
 =head1 SYNOPSIS
 
