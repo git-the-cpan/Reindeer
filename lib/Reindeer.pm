@@ -8,9 +8,11 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer;
-{
-  $Reindeer::VERSION = '0.016';
+BEGIN {
+  $Reindeer::AUTHORITY = 'cpan:RSRCHBOY';
 }
+# git description: 0.016-17-g903cc60
+$Reindeer::VERSION = '0.017';
 
 # ABSTRACT: Moose with more antlers
 
@@ -19,9 +21,10 @@ use warnings;
 
 use Reindeer::Util;
 use Moose::Exporter;
+use Import::Into;
 use Class::Load;
 
-use MooseX::Traits ();
+use MooseX::Traitor;
 use Moose::Util::TypeConstraints ();
 
 my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
@@ -31,7 +34,7 @@ my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
     trait_aliases => [ Reindeer::Util::trait_aliases()      ],
     as_is         => [ Reindeer::Util::as_is()              ],
 
-    base_class_roles => [ qw{ MooseX::Traits } ],
+    base_class_roles => [ qw{ MooseX::Traitor } ],
 );
 
 sub init_meta {
@@ -50,7 +53,8 @@ sub init_meta {
     ### more properly in import()?
     Reindeer::Util->import_type_libraries({ -into => $for_class });
     Path::Class->export_to_level(1);
-    Try::Tiny->export_to_level(1);
+    Try::Tiny->import::into(1);
+    MooseX::Params::Validate->import({ into => $for_class });
     Moose::Util::TypeConstraints->import(
         { into => $for_class },
         qw{ class_type role_type duck_type },
@@ -66,7 +70,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl AutoDestruct MultiInitArg UndefTolerant autoclean rwp ttl
 metaclass Specifing
@@ -77,7 +81,7 @@ Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.016 of Reindeer - released September 17, 2012 as part of Reindeer.
+This document describes version 0.017 of Reindeer - released March 03, 2014 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -241,6 +245,61 @@ e.g., in your class,
     has foo => (is => 'ro', builder => '_build_foo');
     sub _build_foo { 'bar!' }
 
+=head2 isa => ..., constraint => sub { ... }
+
+Specifying the constraint option with a coderef will cause a new subtype
+constraint to be created, with the parent type being the type specified in the
+C<isa> option and the constraint being the coderef supplied here.
+
+For example, only integers greater than 10 will pass this attribute's type
+constraint:
+
+    # value must be an integer greater than 10 to pass the constraint
+    has thinger => (
+        isa        => 'Int',
+        constraint => sub { $_ > 10 },
+        # ...
+    );
+
+Note that if you supply a constraint, you must also provide an C<isa>.
+
+=head2 isa => ..., constraint => sub { ... }, coerce => 1
+
+Supplying a constraint and asking for coercion will "Just Work", that is, any
+coercions that the C<isa> type has will still work.
+
+For example, let's say that you're using the C<File> type constraint from
+L<MooseX::Types::Path::Class>, and you want an additional constraint that the
+file must exist:
+
+    has thinger => (
+        is         => 'ro',
+        isa        => File,
+        constraint => sub { !! $_->stat },
+        coerce     => 1,
+    );
+
+C<thinger> will correctly coerce the string "/etc/passwd" to a
+C<Path::Class:File>, and will only accept the coerced result as a value if
+the file exists.
+
+=head2 coerce => [ Type => sub { ...coerce... }, ... ]
+
+Specifying the coerce option with a hashref will cause a new subtype to be
+created and used (just as with the constraint option, above), with the
+specified coercions added to the list.  In the passed hashref, the keys are
+Moose types (well, strings resolvable to Moose types), and the values are
+coderefs that will coerce a given type to our type.
+
+    has bar => (
+        is     => 'ro',
+        isa    => 'Str',
+        coerce => [
+            Int    => sub { "$_"                       },
+            Object => sub { 'An instance of ' . ref $_ },
+        ],
+    );
+
 =head1 NEW KEYWORDS (SUGAR)
 
 In addition to all sugar provided by L<Moose> (e.g. has, with, extends), we
@@ -342,6 +401,16 @@ and the value rebuilt (given that the attribute is lazy and has a builder
 defined).
 
 See L<MooseX::AutoDestruct> for more information.
+
+=head2 CascadeClearing
+
+This attribute trait allows one to designate that certain attributes are to be
+cleared when certain other ones are; that is, when an attribute is cleared
+that clearing will be cascaded down to other attributes.  This is most useful
+when you have attributes that are lazily built.
+
+See L<MooseX::CascadeClearing> for more information and a significantly more
+cogent description.
 
 =head2 ENV
 
@@ -518,21 +587,21 @@ See the L<Path::Class> documentation for more detail.
 You can use Try::Tiny's C<try> and C<catch> to expect and handle exceptional
 conditions, avoiding quirks in Perl and common mistakes:
 
-	# handle errors with a catch handler
-	try {
-		die "foo";
-	} catch {
-		warn "caught error: $_"; # not $@
-	};
+  # handle errors with a catch handler
+  try {
+    die "foo";
+  } catch {
+    warn "caught error: $_"; # not $@
+  };
 
-You can also use it like a stanalone C<eval> to catch and ignore any error
+You can also use it like a standalone C<eval> to catch and ignore any error
 conditions.  Obviously, this is an extreme measure not to be undertaken
 lightly:
 
-	# just silence errors
-	try {
-		die "foo";
-	};
+  # just silence errors
+  try {
+    die "foo";
+  };
 
 See the L<Try::Tiny> documentation for more detail.
 
@@ -559,11 +628,7 @@ Please see those modules/websites for more information related to this module.
 
 =item *
 
-L<Moose>
-
-=item *
-
-L<All of the above referenced packages.|All of the above referenced packages.>
+L<L<Moose>, and all of the above-referenced packages.|L<Moose>, and all of the above-referenced packages.>
 
 =back
 

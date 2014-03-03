@@ -8,10 +8,10 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer::Builder;
-{
-  $Reindeer::Builder::VERSION = '0.016';
+BEGIN {
+  $Reindeer::Builder::AUTHORITY = 'cpan:RSRCHBOY';
 }
-
+$Reindeer::Builder::VERSION = '0.017';
 # ABSTRACT: Easily build a new 'Reindeer' style class
 
 use strict;
@@ -79,7 +79,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl metaclass
 
@@ -89,7 +89,7 @@ Reindeer::Builder - Easily build a new 'Reindeer' style class
 
 =head1 VERSION
 
-This document describes version 0.016 of Reindeer::Builder - released September 17, 2012 as part of Reindeer.
+This document describes version 0.017 of Reindeer::Builder - released March 03, 2014 as part of Reindeer.
 
 =head1 SYNOPSIS
 

@@ -8,10 +8,10 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer::Types;
-{
-  $Reindeer::Types::VERSION = '0.016';
+BEGIN {
+  $Reindeer::Types::AUTHORITY = 'cpan:RSRCHBOY';
 }
-
+$Reindeer::Types::VERSION = '0.017';
 # ABSTRACT: Reindeer combined type library
 
 use strict;
@@ -30,7 +30,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl
 
@@ -40,7 +40,7 @@ Reindeer::Types - Reindeer combined type library
 
 =head1 VERSION
 
-This document describes version 0.016 of Reindeer::Types - released September 17, 2012 as part of Reindeer.
+This document describes version 0.017 of Reindeer::Types - released March 03, 2014 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -59,74 +59,74 @@ role).
 
 =head1 TYPES
 
-=head2 LoadableClass
+=head2 C<LoadableClass>
 
 A normal class / package.
 
-=head2 LoadableRole
+=head2 C<LoadableRole>
 
 Like C<LoadableClass>, except the loaded package must be a L<Moose::Role>.
 
-=head2 SimpleStr
+=head2 C<SimpleStr>
 
-A Str with no new-line characters.
+A C<Str> with no new-line characters.
 
-=head2 NonEmptySimpleStr
+=head2 C<NonEmptySimpleStr>
 
-A Str with no new-line characters and length > 0
+A C<Str> with no new-line characters and length > 0
 
-=head2 LowerCaseSimpleStr
+=head2 C<LowerCaseSimpleStr>
 
-A Str with no new-line characters, length > 0 and no uppercase characters
-A coercion exists via C<lc> from NonEmptySimpleStr
+A C<Str> with no new-line characters, length > 0 and no uppercase characters
+A coercion exists via C<lc> from C<NonEmptySimpleStr>
 
-=head2 UpperCaseSimpleStr
+=head2 C<UpperCaseSimpleStr>
 
-A Str with no new-line characters, length > 0 and no lowercase characters
-A coercion exists via C<uc> from NonEmptySimpleStr
+A C<Str> with no new-line characters, length > 0 and no lowercase characters
+A coercion exists via C<uc> from C<NonEmptySimpleStr>
 
-=head2 Password
+=head2 C<Password>
 
-=head2 StrongPassword
+=head2 C<StrongPassword>
 
-=head2 NonEmptyStr
+=head2 C<NonEmptyStr>
 
-A Str with length > 0
+A C<Str> with length > 0
 
-=head2 LowerCaseStr
+=head2 C<LowerCaseStr>
 
-A Str with length > 0 and no uppercase characters.
-A coercion exists via C<lc> from NonEmptyStr
+A C<Str> with length > 0 and no uppercase characters.
+A coercion exists via C<lc> from C<NonEmptyStr>
 
-=head2 UpperCaseStr
+=head2 C<UpperCaseStr>
 
-A Str with length > 0 and no lowercase characters.
-A coercion exists via C<uc> from NonEmptyStr
+A C<Str> with length > 0 and no lowercase characters.
+A coercion exists via C<uc> from C<NonEmptyStr>
 
-=head2 NumericCode
+=head2 C<NumericCode>
 
-A Str with no new-line characters that consists of only Numeric characters.
-Examples include, Social Security Numbers, PINs, Postal Codes, HTTP Status
+A C<Str> with no new-line characters that consists of only Numeric characters.
+Examples include, Social Security Numbers, Personal Identification Numbers, Postal Codes, HTTP Status
 Codes, etc. Supports attempting to coerce from a string that has punctuation
 in it ( e.g credit card number 4111-1111-1111-1111 ).
 
-=head2 PositiveNum
+=head2 C<PositiveNum>
 
-=head2 PositiveOrZeroNum
+=head2 C<PositiveOrZeroNum>
 
-=head2 PositiveInt
+=head2 C<PositiveInt>
 
-=head2 PositiveOrZeroInt
+=head2 C<PositiveOrZeroInt>
 
-=head2 NegativeNum
+=head2 C<NegativeNum>
 
-=head2 NegativeOrZeroNum
+=head2 C<NegativeOrZeroNum>
 
-=head2 NegativeInt
+=head2 C<NegativeInt>
 
-=head2 NegativeOrZeroInt
+=head2 C<NegativeOrZeroInt>
 
-=head2 SingleDigit
+=head2 C<SingleDigit>
 
 =head2 IxHash
 

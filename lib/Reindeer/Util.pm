@@ -8,10 +8,10 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer::Util;
-{
-  $Reindeer::Util::VERSION = '0.016';
+BEGIN {
+  $Reindeer::Util::AUTHORITY = 'cpan:RSRCHBOY';
 }
-
+$Reindeer::Util::VERSION = '0.017';
 # ABSTRACT: Common and utility functions for Reindeer
 
 use strict;
@@ -26,7 +26,7 @@ use Class::Load 'load_class';
 use Moose 1.15                              ( );
 use MooseX::AlwaysCoerce 0.16               ( );
 use MooseX::AbstractMethod 0.003            ( );
-use MooseX::AttributeShortcuts 0.015        ( );
+use MooseX::AttributeShortcuts 0.017        ( );
 use MooseX::ClassAttribute 0.26             ( );
 use MooseX::CurriedDelegation               ( );
 use MooseX::LazyRequire 0.07                ( );
@@ -40,8 +40,9 @@ use MooseX::Types::LoadableClass 0.006      ( );
 use MooseX::Types::Path::Class 0.05         ( );
 use MooseX::Types::Tied::Hash::IxHash 0.003 ( );
 
-use Path::Class 0.24 ( );
-use Try::Tiny 0.11   ( );
+use MooseX::Params::Validate 0.016 ( );
+use Path::Class 0.24               ( );
+use Try::Tiny 0.11                 ( );
 
 # SlurpyConstructor, Params::Validate
 
@@ -51,10 +52,11 @@ sub trait_aliases {
     # note that merely specifing aliases does not load the packages; Moose
     # will handle that when (if) the trait is ever used.
     return (
-        [ 'MooseX::AutoDestruct::Trait::Attribute'           => 'AutoDestruct'  ],
-        [ 'MooseX::MultiInitArg::Trait'                      => 'MultiInitArg'  ],
-        [ 'MooseX::TrackDirty::Attributes::Trait::Attribute' => 'TrackDirty'    ],
-        [ 'MooseX::UndefTolerant::Attribute'                 => 'UndefTolerant' ],
+        [ 'MooseX::AutoDestruct::Trait::Attribute'           => 'AutoDestruct'    ],
+        [ 'MooseX::MultiInitArg::Trait'                      => 'MultiInitArg'    ],
+        [ 'MooseX::TrackDirty::Attributes::Trait::Attribute' => 'TrackDirty'      ],
+        [ 'MooseX::UndefTolerant::Attribute'                 => 'UndefTolerant'   ],
+        [ 'MooseX::CascadeClearing::Role::Meta::Attribute'   => 'CascadeClearing' ],
 
         # these don't export a trait_alias, so let's create one
         'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire',
@@ -68,8 +70,10 @@ sub trait_aliases {
 # If an extension doesn't have a trait that's directly loadable, we build subs
 # to do it here.
 
-sub ENV     { _lazy('MooseX::Attribute::ENV', 'MooseX::Attribute::ENV') }
-sub SetOnce { _lazy('MooseX::SetOnce', 'MooseX::SetOnce::Attribute') }
+sub ENV       { _lazy('MooseX::Attribute::ENV',     'MooseX::Attribute::ENV'                      ) }
+sub SetOnce   { _lazy('MooseX::SetOnce',            'MooseX::SetOnce::Attribute'                  ) }
+sub Shortcuts { _lazy('MooseX::AttributeShortcuts', 'MooseX::AttributeShortcuts::Trait::Attribute') }
+
 sub _lazy   { load_class(shift); shift }
 
 
@@ -78,6 +82,7 @@ sub as_is {
     return (
         \&ENV,
         \&SetOnce,
+        \&Shortcuts,
     );
 }
 
@@ -132,7 +137,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl
 
@@ -142,7 +147,7 @@ Reindeer::Util - Common and utility functions for Reindeer
 
 =head1 VERSION
 
-This document describes version 0.016 of Reindeer::Util - released September 17, 2012 as part of Reindeer.
+This document describes version 0.017 of Reindeer::Util - released March 03, 2014 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -178,6 +183,7 @@ Import our list of type libraries into a given package.
 Returns a list of type libraries currently exported by Reindeer.
 
 =for Pod::Coverage     SetOnce
+    Shortcuts
 
 =head1 SEE ALSO
 

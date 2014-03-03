@@ -8,10 +8,10 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer::Role;
-{
-  $Reindeer::Role::VERSION = '0.016';
+BEGIN {
+  $Reindeer::Role::AUTHORITY = 'cpan:RSRCHBOY';
 }
-
+$Reindeer::Role::VERSION = '0.017';
 # ABSTRACT: Reindeer in role form
 
 use strict;
@@ -19,6 +19,7 @@ use warnings;
 
 use Reindeer::Util;
 use Moose::Exporter;
+use Import::Into;
 
 my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
     install => [ qw{ import unimport } ],
@@ -42,7 +43,8 @@ sub init_meta {
     Moose::Role->init_meta(for_class => $for_class);
     Reindeer::Util->import_type_libraries({ -into => $for_class });
     Path::Class->export_to_level(1);
-    Try::Tiny->export_to_level(1);
+    Try::Tiny->import::into(1);
+    MooseX::Params::Validate->import({ into => $for_class });
     Moose::Util::TypeConstraints->import(
         { into => $for_class },
         qw{ class_type role_type duck_type },
@@ -58,7 +60,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Chris Weyl
 
@@ -68,7 +70,7 @@ Reindeer::Role - Reindeer in role form
 
 =head1 VERSION
 
-This document describes version 0.016 of Reindeer::Role - released September 17, 2012 as part of Reindeer.
+This document describes version 0.017 of Reindeer::Role - released March 03, 2014 as part of Reindeer.
 
 =head1 SYNOPSIS
 
