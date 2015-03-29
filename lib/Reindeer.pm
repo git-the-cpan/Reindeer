@@ -8,11 +8,9 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Reindeer;
-BEGIN {
-  $Reindeer::AUTHORITY = 'cpan:RSRCHBOY';
-}
-# git description: 0.016-17-g903cc60
-$Reindeer::VERSION = '0.017';
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.017-6-ga58dc6d
+$Reindeer::VERSION = '0.018';
 
 # ABSTRACT: Moose with more antlers
 
@@ -24,7 +22,7 @@ use Moose::Exporter;
 use Import::Into;
 use Class::Load;
 
-use MooseX::Traitor;
+use MooseX::Traitor 0.002;
 use Moose::Util::TypeConstraints ();
 
 my (undef, undef, $init_meta) = Moose::Exporter->build_import_methods(
@@ -41,11 +39,19 @@ sub init_meta {
     my ($class, %options) = @_;
     my $for_class = $options{for_class};
 
-    if ($] >= 5.010) {
+    # enable features to the level of Perl being used
+    my $features
+        = $] >= 5.020 ? ':5.20'
+        : $] >= 5.018 ? ':5.18'
+        : $] >= 5.016 ? ':5.16'
+        : $] >= 5.014 ? ':5.14'
+        : $] >= 5.012 ? ':5.12'
+        : $] >= 5.010 ? ':5.10'
+        :               undef
+        ;
 
-        eval 'use feature';
-        feature->import(':5.10');
-    }
+    do { require feature; feature->import($features) }
+        if $features;
 
     ### $for_class
     Moose->init_meta(for_class => $for_class);
@@ -75,13 +81,15 @@ __END__
 =for :stopwords Chris Weyl AutoDestruct MultiInitArg UndefTolerant autoclean rwp ttl
 metaclass Specifing
 
+=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed
+
 =head1 NAME
 
 Reindeer - Moose with more antlers
 
 =head1 VERSION
 
-This document describes version 0.017 of Reindeer - released March 03, 2014 as part of Reindeer.
+This document describes version 0.018 of Reindeer - released March 28, 2015 as part of Reindeer.
 
 =head1 SYNOPSIS
 
@@ -89,6 +97,7 @@ This document describes version 0.017 of Reindeer - released March 03, 2014 as p
     use Reindeer;
 
     # ...is the same as:
+    use feature ':5.xx'; # where xx is appropriate for your running perl
     use Moose;
     use MooseX::MarkAsMethods autoclean => 1;
     use MooseX::AlwaysCoerce;
@@ -245,6 +254,24 @@ e.g., in your class,
     has foo => (is => 'ro', builder => '_build_foo');
     sub _build_foo { 'bar!' }
 
+=head2 isa_instance_of => ...
+
+Given a package name, this option will create an C<isa> type constraint that
+requires the value of the attribute be an instance of the class (or a
+descendant class) given.  That is,
+
+    has foo => (is => 'ro', isa_instance_of => 'SomeThing');
+
+...is effectively the same as:
+
+    use Moose::TypeConstraints 'class_type';
+    has foo => (
+        is  => 'ro',
+        isa => class_type('SomeThing'),
+    );
+
+...but a touch less awkward.
+
 =head2 isa => ..., constraint => sub { ... }
 
 Specifying the constraint option with a coderef will cause a new subtype
@@ -299,6 +326,48 @@ coderefs that will coerce a given type to our type.
             Object => sub { 'An instance of ' . ref $_ },
         ],
     );
+
+=head2 handles => { foo => sub { ... }, ... }
+
+Creating a delegation with a coderef will now create a new, "custom accessor"
+for the attribute.  These coderefs will be installed and called as methods on
+the associated class (just as readers, writers, and other accessors are), and
+will have the attribute metaclass available in $_.  Anything the accessor
+is called with it will have access to in @_, just as you'd expect of a method.
+
+e.g., the following example creates an attribute named 'bar' with a standard
+reader accessor named 'bar' and two custom accessors named 'foo' and
+'foo_too'.
+
+    has bar => (
+
+        is      => 'ro',
+        isa     => 'Int',
+        handles => {
+
+            foo => sub {
+                my $self = shift @_;
+
+                return $_->get_value($self) + 1;
+            },
+
+            foo_too => sub {
+                my $self = shift @_;
+
+                return $self->bar + 1;
+            },
+        },
+    );
+
+...and later,
+
+Note that in this example both foo() and foo_too() do effectively the same
+thing: return the attribute's current value plus 1.  However, foo() accesses
+the attribute value directly through the metaclass, the pros and cons of
+which this author leaves as an exercise for the reader to determine.
+
+You may choose to use the installed accessors to get at the attribute's value,
+or use the direct metaclass access, your choice.
 
 =head1 NEW KEYWORDS (SUGAR)
 
@@ -634,8 +703,8 @@ L<L<Moose>, and all of the above-referenced packages.|L<Moose>, and all of the a
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/RsrchBoy/reindeer>
-and may be cloned from L<git://github.com/RsrchBoy/reindeer.git>
+The development version is on github at L<http://https://github.com/RsrchBoy/reindeer>
+and may be cloned from L<git://https://github.com/RsrchBoy/reindeer.git>
 
 =head1 BUGS
 
@@ -649,6 +718,25 @@ feature.
 =head1 AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+=head2 I'm a material boy in a material world
+
+=begin html
+
+<a href="https://www.gittip.com/RsrchBoy/"><img src="https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png" /></a>
+<a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Freindeer&title=RsrchBoy's%20CPAN%20Reindeer&tags=%22RsrchBoy's%20Reindeer%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+
+=end html
+
+Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
+rather B<it is simply a very pleasant surprise>. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you if you feel like it ;)
+
+L<Flattr this|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Freindeer&title=RsrchBoy's%20CPAN%20Reindeer&tags=%22RsrchBoy's%20Reindeer%20in%20the%20CPAN%22>,
+L<gittip me|https://www.gittip.com/RsrchBoy/>, or indulge my
+L<Amazon Wishlist|http://bit.ly/rsrchboys-wishlist>...  If you so desire.
 
 =head1 COPYRIGHT AND LICENSE
 
